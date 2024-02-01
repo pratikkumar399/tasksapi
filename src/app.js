@@ -17,8 +17,10 @@ app.use(cookieParser());
 // import routes
 
 import tasks from './routes/task.routes.js';
+import subtasks from './routes/subtasks.routes.js';
 
 app.use("/api/tasks", tasks);
+app.use("/api/subtasks", subtasks);
 
 
 

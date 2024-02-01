@@ -1,15 +1,16 @@
 import jwt from 'jsonwebtoken';
+import { JWT_SECRET } from '../constants.js';
 
 
 function authenticateToken(req, res, next) {
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3VkIjoicHJhdGlrcmFpIn0.wNfICKURoEJ2n5TF8ljWk01stkUDNi6KzWqVDfkz-rw";
+    const token = JWT_SECRET;
     if (!token) {
         return res.status(401).json({ message: 'Authentication failed: Missing token' });
     }
 
     try {
         const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-        const userId = decoded.user_id;
+        const userId = decoded.user_ud;
         console.log('Decoded user_id:', userId);
         next();
     } catch (error) {
