@@ -13,4 +13,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(cookieParser());
 
+
+// import routes
+
+import tasks from './routes/task.routes.js';
+
+app.use("/api/tasks", tasks);
+
+
+
 export { app };
