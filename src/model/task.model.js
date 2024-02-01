@@ -2,17 +2,21 @@ import mongoose from 'mongoose';
 
 const taskSchema = new mongoose.Schema({
     title: {
-        this: String,
+        type: String,
         required: true,
     },
     description: {
-        this: String,
+        type: String,
         required: true,
     },
     due_date: {
-        this: Date,
+        type: Date,
         required: true,
     },
-});
+},
+    {
+        timestamps: true,
+    }
+);
 
 export const Task = mongoose.model('Task', taskSchema);
