@@ -18,10 +18,14 @@ app.use(cookieParser());
 
 import tasks from './routes/task.routes.js';
 import subtasks from './routes/subtasks.routes.js';
+import users from './routes/user.routes.js';
+import { scheduleVoiceCalls } from './utils/voiceScheduler.js';
 
 app.use("/api/tasks", tasks);
 app.use("/api/subtasks", subtasks);
+app.use("/api/users", users);
 
+scheduleVoiceCalls();
 
 
 export { app };

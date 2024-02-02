@@ -3,10 +3,10 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 
 const createTask = asyncHandler(async (req, res) => {
     // extract task details from request body
-    const { title, description, due_date } = req.body;
+    const { title, description, due_date, user_id } = req.body;
 
     // Create a new task instance using the Task model
-    const newTask = new Task({ title, description, due_date });
+    const newTask = new Task({ title, description, due_date, user_id });
 
     // Save the task to the database
     const savedTask = await newTask.save();
@@ -54,10 +54,10 @@ const updateTask = asyncHandler(async (req, res) => {
 });
 
 const deleteTask = asyncHandler(async (req, res) => {
-    const { taskId } = req.params;
+    const { id } = req.params;
 
     // Check if the task exists
-    const existingTask = await Task.findById(taskId);
+    const existingTask = await Task.findById(id);
     if (!existingTask) {
         return res.status(404).json({ message: 'Not Found: Task not found' });
     }

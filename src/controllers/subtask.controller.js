@@ -83,7 +83,7 @@ const deleteSubTask = asyncHandler(async (req, res) => {
     await existingSubtask.save();
 
     // Respond with success message
-    res.status(200).json({ message: 'Subtask soft deleted successfully' });
+    res.status(200).json({ message: 'Subtask soft deleted successfully', deleted_at: existingSubtask.deleted_at });
 });
 
 export { createSubTask, getSubTasks, updateSubTask, deleteSubTask };
