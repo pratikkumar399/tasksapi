@@ -8,3 +8,12 @@
 * Clone the repository
 * Install the requirements using `npm install`
 * Run the server using `npm run dev`
+
+### Libraries used
+
+* Express
+* Mongoose
+* Jsonwebtoken
+* Nodemon
+* Dotenv
+* Cors
