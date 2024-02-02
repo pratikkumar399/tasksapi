@@ -35,10 +35,10 @@ const getSubTasks = asyncHandler(async (req, res) => {
     // Query subtasks with the task_id filter
     // Respond with the subtasks
 
-    const { task_id } = req.query;
+    const { id } = req.query;
 
     const filters = {};
-    if (task_id) filters.task_id = task_id;
+    if (id) filters.task_id = id;
 
     const subtasks = await Subtask.find(filters);
 

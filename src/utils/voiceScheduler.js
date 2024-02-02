@@ -46,6 +46,7 @@ const getUsersByPriority = async (priority) => {
 
 // Function to schedule voice calls based on task due dates and user priorities
 const scheduleVoiceCalls = () => {
+    // Schedule the job to run every 5 minutes
     schedule.scheduleJob('*/5 * * * *', async () => {
         const overdueTasks = await Task.find({ due_date: { $lt: new Date() }, status: 'TODO' })
             .populate('user_id')
